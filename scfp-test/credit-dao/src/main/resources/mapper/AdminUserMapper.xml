@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newhope.dt.crpt.dao.mapper.AdminUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.newhope.dt.crpt.dao.dataobject.AdminUserDO">
+        <!--@Table admin_user-->
+        <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+        <result property="larkPicture" column="lark_picture" jdbcType="VARCHAR"/>
+        <result property="larkAccount" column="lark_account" jdbcType="VARCHAR"/>
+        <result property="larkOpenId" column="lark_open_id" jdbcType="VARCHAR"/>
+        <result property="deptId" column="dept_id" jdbcType="VARCHAR"/>
+        <result property="userAccount" column="user_account" jdbcType="VARCHAR"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="businessAttr" column="business_attr" jdbcType="VARCHAR"/>
+        <result property="businessOwnership" column="business_ownership" jdbcType="VARCHAR"/>
+        <result property="displayTheFeiShuQrCode" column="display_the_fei_shu_qr_code" jdbcType="VARCHAR"/>
+        <result property="dataScopeType" column="data_scope_type" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="certNo" column="cert_no" jdbcType="VARCHAR"/>
+        <result property="birthday" column="birthday" jdbcType="TIMESTAMP"/>
+        <result property="userEbsNo" column="user_ebs_no" jdbcType="VARCHAR"/>
+        <result property="oaAccount" column="oa_account" jdbcType="VARCHAR"/>
+        <result property="job" column="job" jdbcType="VARCHAR"/>
+        <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+        <result property="tel" column="tel" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="avatarId" column="avatar_id" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="delFlag" column="del_flag" jdbcType="VARCHAR"/>
+        <result property="loginIp" column="login_ip" jdbcType="VARCHAR"/>
+        <result property="loginDate" column="login_date" jdbcType="TIMESTAMP"/>
+        <result property="lastModTime" column="last_mod_time" jdbcType="TIMESTAMP"/>
+        <result property="failCount" column="fail_count" jdbcType="VARCHAR"/>
+        <result property="migrateRemark" column="migrate_remark" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="invitationCode" column="invitation_code" jdbcType="VARCHAR"/>
+    </resultMap>
+
+</mapper>
+

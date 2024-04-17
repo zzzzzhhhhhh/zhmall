@@ -1,0 +1,187 @@
+server:
+  port: 8001
+
+# 数据库名称
+crpt:
+  database:
+    name: phdb_dev
+arthas:
+  ip: 0.0.0.0
+  http-port: 8100
+  telnet-port: 8101
+  session-timeout: 1800
+ribbon:
+  ReadTimeout: 4000
+  ConnectTimeout: 4000
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 30000
+logging:
+  config: classpath:log4j2-${spring.profiles.active}.xml
+log4j2:
+  formatMsgNoLookups: True
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 200MB
+  redis:
+    host: 10.10.110.74
+    password: Xxw@2019
+    port: 6789
+    database: 1
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+    template:
+      default-topic: risk-engine-dev
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://10.10.110.74:13306/phdb_local?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: phdb_local_user
+    password: aseexww@%dA8526
+    # Hikari 连接池配置
+    hikari:
+      # 最小空闲连接数量
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: CrptHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      # 测试sql
+      connection-test-query: SELECT 1
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  typeAliasesPackage: com.newhope.dt.phdb.dao.dataobject,com.newhope.dt.phdb.*.domain
+  global-config:
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+
+ebs:
+  client:
+    address: http://ebstrnapi.liuheco.com:8009/ebsIntergration/commonWS
+    sourceCode: FGI
+    password: 68e0c353a59c59428ec3baaec3514c3a
+  app:
+    connect-ebs: true
+financecompany:
+  client:
+    address: https://182.140.221.225/efmp-feg-war/fegSrvServlet
+    appCode: GF_DBGS_X
+    appName: 股份担保公司新系统
+    jksFilePasssword: 1572.sec
+    jksFilePath: /financecompany/20230602.pfx
+  scheduledOn: true
+
+
+security:
+  oauth2:
+    ignore:
+      urls:
+        - /health
+        - /v1/pad/eqb/callback
+        - /v1/pad/contract/callback
+        - /v1/pad/version/select
+        - /v1/scfp/**
+
+# oss
+aws:
+  s3:
+    access-key: YKG86JEFSZVT7B0RB5XH
+    secret-key: wrTmYKmDhihHnQqXLEFjOMSrMGgrHoMAWSCCefgix
+    bucket-name: phdb-nprod
+    endpoint: ossnewhope.oak.net.cn
+    key-private-prefix: private/dev/
+  sts:
+    access-key: 6K5UB58Z0Y65CSNWTYQ4
+    secret-key: d0EWRYAd3ad4rZKOLi9o8wDn9He2L4iASNIK9M10
+    endpoint: ossnewhope.oak.net.cn
+
+ps:
+  token-request:
+    sender: SRM
+    password: b1662346-1c7b-11ea-86e7-a81007c2c58e
+  url: http://hruat.liuheco.com:8000/PSIGW/PeopleSoftServiceListeningConnector/PSFT_HR/
+
+tongdun:
+  client:
+    partner_code: phnm
+    partner_key: 4a2411f0e9e54eeb87233b65796ac8c6
+    app_name: phnmdb_web
+    biz_code: phnmdaiqian
+    url: https://apitest.tongdun.cn/bodyguard/apply/v5.1
+xxl:
+  job:
+    admin:
+      # 调度中心部署跟地址 [选填]：如调度中心集群部署存在多个地址则用逗号分隔。执行器将会使用该地址进行"执行器心跳注册"和"任务结果回调"；为空则关闭自动注册；
+      addresses: http://10.10.110.132:18100/xxl-job-admin/
+      # 执行器通讯TOKEN [选填]：非空时启用；
+    accessToken: ''
+    executor:
+      # 执行器AppName [选填]：执行器心跳注册分组依据；为空则关闭自动注册
+      appname: phdb-dev
+      # 执行器注册 [选填]：优先使用该配置作为注册地址，为空时使用内嵌服务 ”IP:PORT“ 作为注册地址。从而更灵活的支持容器类型执行器动态IP和动态映射端口问题。
+      address:
+      # 执行器IP [选填]：默认为空表示自动获取IP，多网卡时可手动设置指定IP，该IP不会绑定Host仅作为通讯实用；地址信息用于 "执行器注册" 和 "调度中心请求并触发任务"；
+      ip:
+      # 执行器端口号 [选填]：小于等于0则自动获取；默认端口为9999，单机部署多个执行器时，注意要配置不同执行器端口；
+      port: 9999
+      # 执行器运行日志文件存储磁盘路径 [选填] ：需要对该路径拥有读写权限；为空则使用默认路径；
+      logpath: xxl-job/jobhandler
+      #        # 执行器日志文件保存天数 [选填] ： 过期日志自动清理, 限制值大于等于3时生效; 否则, 如-1, 关闭自动清理功能；
+      logretentiondays: 30
+
+guar:
+  frequencyToWait: 100
+  waitTime: 5
+kafka:
+  producer:
+    isopen: false
+eqb-sign:
+  appId: 7438895808
+  appSecret: 83b1ff1bf2939a944465bac47364da93
+  apiUrl: https://smlopenapi.esign.cn
+
+scfp:
+  defaultDeptId: 100069
+  defaultRoleId: 1644237262943621121
+  #供应链金融文件OSS
+  aws:
+    s3:
+      access-key: DXLKJ0K02BZW2HQ9AAHO
+      secret-key: yOBMNux8nOivmNPnA4fjpckZNd2YyUfhUSjDa3On
+      bucket-name: scfp-uat
+      endpoint: ossnewhope.oak.net.cn
+      key-private-prefix: scfp
+
+RSA:
+  publickey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDXCWoeplwgmuGAaMAqGnYYhi4/eBy8VLEd+wKbmT7m0JUMjZ3HP+YSy54/6CHw4+8R6aQBtY7Krje9fy5gosdPy97m/rUiNAvhiW01zEKdPlT/Nh1R1m/D7v5QBhEnTi3ghAAxCx6VgKJrK3Gk2NUT4Wip2+eoVw58O1Q5FI4rFwIDAQAB
+  privatekey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANcJah6mXCCa4YBowCoadhiGLj94HLxUsR37ApuZPubQlQyNncc/5hLLnj/oIfDj7xHppAG1jsquN71/LmCix0/L3ub+tSI0C+GJbTXMQp0+VP82HVHWb8Pu/lAGESdOLeCEADELHpWAomsrcaTY1RPhaKnb56hXDnw7VDkUjisXAgMBAAECgYEAx1EYpfQ5bJdi8a0mgWApmq207Gue5wnxagKh9ivjW/p2TT5uwqL91OobcsztuOTtUcMom9T31/IIBIOAL15yMlbPUk6XfDGF6XenhJzmvDvfO9XKpO5rTStZxG7A8VYoNA+JMVCbGZWmL+3zJjHpKxzGqcQZFZeGwk5lGOMIvWECQQD5tcTDpPEp+VmbCXmNm7tbRNCR0U2Spf8AhmzdXHTywQFSpv2EnxkzU3CjCVavNg5K96bLsI+UF/RjVIp3n/YJAkEA3HQPB+ckKir2DUjSZs7lcx4bfOIRH0zPOns52CYEnXKtngD+NznQf/taOtoXCRTObFEKTN0H2fI3R2a5V4xgHwJANdmKDjriuw+H0FRRv0UHOV50sA138hkUDdPvZClNGxCeLWnPoCsDLztePfqElBJPMMGJWcHApMoprMYNelCnqQJAQkN0XSjB+xbMvLN94r8fwtly47fD88ePpoFxoqHS00ysGQktYIY1QLLZrUTulaE2ZuJ5GR97A6zFpuWeok0kewJBANKzvO+1nsWeptZWXgJoRk/cRF6l+HDy2WzepH+V1H2eaG+jw2eu4MV7j3BBviZhF/0L6kIeFCNLZPtB54bjjB0=
+receivesettle:
+  locked: true
+#E签宝三要素认证开关
+eqbThreeFactor:
+  #个人客户
+  person:
+    enable: false
+  #企业客户
+  corp:
+    enable: true
+compensation:
+  message: 1
