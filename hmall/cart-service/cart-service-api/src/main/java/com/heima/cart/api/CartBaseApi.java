@@ -1,2 +1,4 @@
-package com.heima.cart.api;public interface CartBaseApi {
+package com.heima.cart.api;
+
+public interface CartBaseApi {
 }

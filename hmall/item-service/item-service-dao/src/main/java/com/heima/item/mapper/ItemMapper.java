@@ -1,8 +1,8 @@
-package com.hmall.mapper;
+package com.heima.item.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hmall.domain.dto.OrderDetailDTO;
-import com.hmall.domain.po.Item;
+import com.heima.item.dataobject.Item;
+import com.heima.item.dto.OrderDetailDTO;
 import org.apache.ibatis.annotations.Update;
 
 /**

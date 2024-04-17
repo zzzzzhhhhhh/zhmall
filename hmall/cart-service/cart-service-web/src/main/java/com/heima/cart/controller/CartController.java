@@ -1,10 +1,13 @@
-package com.hmall.controller;
+package com.heima.cart.controller;
 
 
-import com.hmall.domain.dto.CartFormDTO;
-import com.hmall.domain.po.Cart;
-import com.hmall.domain.vo.CartVO;
-import com.hmall.service.ICartService;
+import com.heima.cart.ICartService;
+import com.heima.cart.api.api.CartApi;
+import com.heima.cart.api.request.CartFormQo;
+import com.heima.cart.api.request.CartQo;
+import com.heima.cart.api.response.CartVO;
+import com.heima.cart.dataobject.Cart;
+import com.hmall.common.utils.BeanUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -19,29 +22,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/carts")
 @RequiredArgsConstructor
-public class CartController {
+public class CartController implements CartApi {
     private final ICartService cartService;
 
-    @ApiOperation("添加商品到购物车")
-    @PostMapping
-    public void addItem2Cart(@Valid @RequestBody CartFormDTO cartFormDTO){
+    public void addItem2Cart(CartFormQo cartFormDTO){
         cartService.addItem2Cart(cartFormDTO);
     }
 
-    @ApiOperation("更新购物车数据")
-    @PutMapping
-    public void updateCart(@RequestBody Cart cart){
-        cartService.updateById(cart);
+    public void updateCart(@RequestBody CartQo cart){
+        Cart cart1 = BeanUtils.copyBean(cart, Cart.class);
+        cartService.updateById(cart1);
     }
 
-    @ApiOperation("删除购物车中商品")
-    @DeleteMapping("{id}")
     public void deleteCartItem(@Param ("购物车条目id")@PathVariable("id") Long id){
         cartService.removeById(id);
     }
 
-    @ApiOperation("查询购物车列表")
-    @GetMapping
     public List<CartVO> queryMyCarts(){
         return cartService.queryMyCarts();
     }

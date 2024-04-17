@@ -1,4 +1,4 @@
-package com.heima.item.dto;
+package com.heima.cart.api.dto.item;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

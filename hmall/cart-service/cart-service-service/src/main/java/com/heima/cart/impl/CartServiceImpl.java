@@ -1,23 +1,25 @@
-package com.hmall.service.impl;
+package com.heima.cart.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.hmall.common.exception.BadRequestException;
+import com.heima.cart.ICartService;
+import com.heima.cart.api.dto.item.ItemDTO;
+import com.heima.cart.api.request.CartFormQo;
+import com.heima.cart.api.response.CartVO;
+import com.heima.cart.client.ItemClient;
+import com.heima.cart.dataobject.Cart;
+import com.heima.cart.mapper.CartMapper;
+import com.heima.item.api.api.ItemApi;
+import com.heima.item.api.response.ItemResp;
 import com.hmall.common.exception.BizIllegalException;
 import com.hmall.common.utils.BeanUtils;
 import com.hmall.common.utils.CollUtils;
 import com.hmall.common.utils.UserContext;
-import com.hmall.domain.dto.CartFormDTO;
-import com.hmall.domain.dto.ItemDTO;
-import com.hmall.domain.po.Cart;
-import com.hmall.domain.vo.CartVO;
-import com.hmall.mapper.CartMapper;
-import com.hmall.service.ICartService;
-import com.hmall.service.IItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -37,10 +39,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements ICartService {
 
-    private final IItemService itemService;
+
+    @Resource
+    private ItemApi itemApi;
+
+
 
     @Override
-    public void addItem2Cart(CartFormDTO cartFormDTO) {
+    public void addItem2Cart(CartFormQo cartFormDTO) {
         // 1.获取登录用户
         Long userId = UserContext.getUser();
 
@@ -65,7 +71,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
     @Override
     public List<CartVO> queryMyCarts() {
         // 1.查询我的购物车列表
-        List<Cart> carts = lambdaQuery().eq(Cart::getUserId, UserContext.getUser()).list();
+        List<Cart> carts = lambdaQuery().eq(Cart::getUserId, /*UserContext.getUser()*/1).list();
         if (CollUtils.isEmpty(carts)) {
             return CollUtils.emptyList();
         }
@@ -84,12 +90,13 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
         // 1.获取商品id
         Set<Long> itemIds = vos.stream().map(CartVO::getItemId).collect(Collectors.toSet());
         // 2.查询商品
-        List<ItemDTO> items = itemService.queryItemByIds(itemIds);
+        //List<ItemDTO> items = itemService.queryItemByIds(itemIds);
+        List<ItemResp> items = itemApi.queryItemByIds(itemIds.stream().collect(Collectors.toList()));
         if (CollUtils.isEmpty(items)) {
             return;
         }
         // 3.转为 id 到 item的map
-        Map<Long, ItemDTO> itemMap = items.stream().collect(Collectors.toMap(ItemDTO::getId, Function.identity()));
+        /*Map<Long, ItemDTO> itemMap = items.stream().collect(Collectors.toMap(ItemDTO::getId, Function.identity()));
         // 4.写入vo
         for (CartVO v : vos) {
             ItemDTO item = itemMap.get(v.getItemId());
@@ -99,7 +106,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
             v.setNewPrice(item.getPrice());
             v.setStatus(item.getStatus());
             v.setStock(item.getStock());
-        }
+        }*/
     }
 
     @Override

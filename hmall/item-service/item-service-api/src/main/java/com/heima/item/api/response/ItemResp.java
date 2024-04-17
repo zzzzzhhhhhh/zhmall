@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ApiModel(description = "商品实体")
-public class ItemDTO {
+public class ItemResp {
     @ApiModelProperty("商品id")
     private Long id;
     @ApiModelProperty("SKU名称")

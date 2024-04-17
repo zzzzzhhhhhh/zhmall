@@ -1,4 +1,4 @@
-package com.hmall.domain.vo;
+package com.heima.cart.api.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

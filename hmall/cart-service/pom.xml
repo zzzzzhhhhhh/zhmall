@@ -10,11 +10,83 @@
     </parent>
 
     <artifactId>cart-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>cart-service-api</module>
+        <module>cart-service-service</module>
+        <module>cart-service-dao</module>
+        <module>cart-service-web</module>
+        <module>cart-service-starter</module>
+        <module>cart-service-client</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.version>1.0.0</project.version>
+        <common.version>1.0.0</common.version>
+        <item.version>1.0.0</item.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>cart-service-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>cart-service-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>cart-service-dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>cart-service-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>cart-service-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>cart-service-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--common导入-->
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-dao</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-feign</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>item-service-api</artifactId>
+                <version>${item.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

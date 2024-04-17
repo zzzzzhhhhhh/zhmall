@@ -1,4 +1,4 @@
-package com.hmall.domain.dto;
+package com.heima.cart.api.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ApiModel(description = "新增购物车商品表单实体")
-public class CartFormDTO {
+public class CartFormQo {
     @ApiModelProperty("商品id")
     private Long itemId;
     @ApiModelProperty("商品标题")

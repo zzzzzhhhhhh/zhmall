@@ -1,9 +1,9 @@
-package com.hmall.service;
+package com.heima.cart;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hmall.domain.dto.CartFormDTO;
-import com.hmall.domain.po.Cart;
-import com.hmall.domain.vo.CartVO;
+import com.heima.cart.api.request.CartFormQo;
+import com.heima.cart.api.response.CartVO;
+import com.heima.cart.dataobject.Cart;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public interface ICartService extends IService<Cart> {
 
-    void addItem2Cart(CartFormDTO cartFormDTO);
+    void addItem2Cart(CartFormQo cartFormDTO);
 
     List<CartVO> queryMyCarts();
 

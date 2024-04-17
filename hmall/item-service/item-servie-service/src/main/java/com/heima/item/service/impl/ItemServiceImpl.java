@@ -1,13 +1,15 @@
-package com.hmall.service.impl;
+package com.heima.item.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.heima.item.api.request.OrderDetailReq;
+import com.heima.item.api.response.ItemResp;
+import com.heima.item.dataobject.Item;
+import com.heima.item.dto.ItemDTO;
+import com.heima.item.dto.OrderDetailDTO;
+import com.heima.item.mapper.ItemMapper;
+import com.heima.item.service.IItemService;
 import com.hmall.common.exception.BizIllegalException;
 import com.hmall.common.utils.BeanUtils;
-import com.hmall.domain.dto.ItemDTO;
-import com.hmall.domain.dto.OrderDetailDTO;
-import com.hmall.domain.po.Item;
-import com.hmall.mapper.ItemMapper;
-import com.hmall.service.IItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -24,8 +26,8 @@ import java.util.List;
 public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements IItemService {
 
     @Override
-    public void deductStock(List<OrderDetailDTO> items) {
-        String sqlStatement = "com.hmall.mapper.ItemMapper.updateStock";
+    public void deductStock(List<OrderDetailReq> items) {
+        String sqlStatement = "com.heima.item.mapper.ItemMapper.updateStock";
         boolean r = false;
         try {
             r = executeBatch(items, (sqlSession, entity) -> sqlSession.update(sqlStatement, entity));
@@ -39,7 +41,8 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements II
     }
 
     @Override
-    public List<ItemDTO> queryItemByIds(Collection<Long> ids) {
-        return BeanUtils.copyList(listByIds(ids), ItemDTO.class);
+    public List<ItemResp> queryItemByIds(Collection<Long> ids) {
+        List<Item> items = listByIds(ids);
+        return BeanUtils.copyList(listByIds(ids), ItemResp.class);
     }
 }

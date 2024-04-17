@@ -1,4 +1,4 @@
-package com.hmall.domain.po;
+package com.heima.item.dataobject;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

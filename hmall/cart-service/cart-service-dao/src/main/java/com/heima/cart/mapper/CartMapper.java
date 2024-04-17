@@ -1,7 +1,7 @@
-package com.hmall.mapper;
+package com.heima.cart.mapper;
 
-import com.hmall.domain.po.Cart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.heima.cart.dataobject.Cart;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
