@@ -20,7 +20,6 @@ import java.util.List;
 
 @Api(tags = "购物车相关接口")
 @RestController
-@RequestMapping("/carts")
 @RequiredArgsConstructor
 public class CartController implements CartApi {
     private final ICartService cartService;
