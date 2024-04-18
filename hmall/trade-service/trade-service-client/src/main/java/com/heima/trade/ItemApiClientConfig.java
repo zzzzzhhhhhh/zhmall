@@ -1,4 +1,4 @@
-package com.heima.cart.client;
+package com.heima.trade;
 
 import com.heima.feign.component.ApiClient;
 import com.heima.item.api.api.ItemApi;
@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import(ApiClient.class)
-public class ItemClient {
-
+public class ItemApiClientConfig {
 
     @Bean
-    public ItemApi itemApiConfig(ApiClient apiClient) throws Exception{
+    ItemApi itemApi(ApiClient apiClient) throws Exception{
         return apiClient.buildClient(ItemApi.class);
     }
+
 }
