@@ -2,7 +2,9 @@ package com.heima.trade.controller;
 
 import com.heima.trade.IOrderService;
 import com.heima.trade.api.TradeApi;
+import com.heima.trade.dataobject.Order;
 import com.heima.trade.request.OrderFormQO;
+import com.heima.trade.request.OrderQO;
 import com.heima.trade.response.OrderVO;
 import com.hmall.common.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +27,10 @@ public class OrderController implements TradeApi {
 
     public void markOrderPaySuccess(@PathVariable("orderId") Long orderId) {
         orderService.markOrderPaySuccess(orderId);
+    }
+
+    @Override
+    public void updateOrderById(OrderQO orderQO) {
+        orderService.updateById(BeanUtils.copyBean(orderQO, Order.class));
     }
 }

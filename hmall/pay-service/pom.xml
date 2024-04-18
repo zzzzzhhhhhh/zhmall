@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.heima</groupId>
+        <artifactId>hmall</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>pay-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>pay-service-starter</module>
+        <module>pay-service-api</module>
+        <module>pay-service-web</module>
+        <module>pay-service-service</module>
+        <module>pay-service-dao</module>
+        <module>pay-service-client</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.version>1.0.0</project.version>
+        <common.version>1.0.0</common.version>
+        <user.version>1.0.0</user.version>
+        <trade.version>1.0.0</trade.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>pay-service-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>pay-service-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>pay-service-dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>pay-service-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>pay-service-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>pay-service-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--common导入-->
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-dao</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-feign</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
+
+            <!-- 引用的其他服务-->
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>user-service-api</artifactId>
+                <version>${user.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>trade-service-api</artifactId>
+                <version>${trade.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
