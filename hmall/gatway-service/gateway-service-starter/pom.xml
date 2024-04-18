@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.heima</groupId>
-        <artifactId>user-service</artifactId>
+        <artifactId>gatway-service</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>user-service-api</artifactId>
+    <artifactId>gateway-service-starter</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -18,15 +18,14 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.heima</groupId>
             <artifactId>common-feign</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>com.heima</groupId>
-            <artifactId>common-core</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
     </dependencies>
+
 </project>

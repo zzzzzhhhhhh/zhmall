@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(tags = "商品管理相关接口")
 @RestController
 @RequiredArgsConstructor
 public class ItemController implements ItemApi {

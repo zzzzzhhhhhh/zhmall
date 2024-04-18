@@ -13,6 +13,8 @@ import java.util.List;
 
 public interface ItemApi extends ItemBaseApi {
 
+    String ITEM_BASE_URL ="/items";
+
     @ApiOperation("分页查询商品")
     @GetMapping(ITEM_BASE_URL+"/page")
     PageDTO<ItemResp> queryItemByPage(PageQuery query);
