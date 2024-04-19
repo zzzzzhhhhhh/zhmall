@@ -4,27 +4,23 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.heima.cart.ICartService;
-import com.heima.cart.api.dto.item.ItemDTO;
 import com.heima.cart.api.request.CartFormQo;
 import com.heima.cart.api.response.CartVO;
-import com.heima.cart.client.ItemClient;
 import com.heima.cart.dataobject.Cart;
 import com.heima.cart.mapper.CartMapper;
 import com.heima.item.api.api.ItemApi;
 import com.heima.item.api.response.ItemResp;
-import com.hmall.common.exception.BizIllegalException;
-import com.hmall.common.utils.BeanUtils;
-import com.hmall.common.utils.CollUtils;
-import com.hmall.common.utils.UserContext;
+import com.heima.common.exception.BizIllegalException;
+import com.heima.common.utils.BeanUtils;
+import com.heima.common.utils.CollUtils;
+import com.heima.common.utils.UserContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**

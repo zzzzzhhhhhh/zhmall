@@ -12,8 +12,33 @@ spring:
           uri: lb://item-service
           predicates:
             - Path=/items/**,/search/**
-
+          filters:
+            - AddRequestHeader=headerGateway,zh1
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/users/**,/addresses/**
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/carts/**
+        - id: pay-service
+          uri: lb://pay-service
+          predicates:
+            - Path=/pay/**
+        - id: trade-service
+          uri: lb://trade-service
+          predicates:
+            - Path=/orders
+      default-filters:
+        - AddRequestHeader=headerGateway,zh1
+hm:
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login

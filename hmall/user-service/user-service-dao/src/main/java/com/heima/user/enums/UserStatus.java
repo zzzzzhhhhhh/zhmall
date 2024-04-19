@@ -1,7 +1,7 @@
 package com.heima.user.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
-import com.hmall.common.exception.BadRequestException;
+import com.heima.common.exception.BadRequestException;
 import lombok.Getter;
 
 @Getter

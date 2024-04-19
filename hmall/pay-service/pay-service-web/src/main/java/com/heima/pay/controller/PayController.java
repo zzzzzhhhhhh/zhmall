@@ -5,12 +5,10 @@ import com.heima.pay.api.PayApi;
 import com.heima.pay.enums.PayType;
 import com.heima.pay.request.PayApplyQO;
 import com.heima.pay.request.PayOrderFormQO;
-import com.hmall.common.exception.BizIllegalException;
-import io.swagger.annotations.Api;
+import com.heima.common.exception.BizIllegalException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

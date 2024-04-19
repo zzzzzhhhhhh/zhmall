@@ -12,9 +12,9 @@ import com.heima.trade.dataobject.OrderDetail;
 import com.heima.trade.mapper.OrderMapper;
 import com.heima.trade.request.OrderDetailQO;
 import com.heima.trade.request.OrderFormQO;
-import com.hmall.common.exception.BadRequestException;
-import com.hmall.common.utils.BeanUtils;
-import com.hmall.common.utils.UserContext;
+import com.heima.common.exception.BadRequestException;
+import com.heima.common.utils.BeanUtils;
+import com.heima.common.utils.UserContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +23,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**

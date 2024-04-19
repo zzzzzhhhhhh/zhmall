@@ -19,7 +19,7 @@ public interface CartApi extends CartBaseApi {
     @PutMapping(CART_BASE_URL)
     void updateCart(@RequestBody CartQo cart);
 
-    @DeleteMapping(CART_BASE_URL+"{id}")
+    @DeleteMapping(CART_BASE_URL+"/{id}")
     void deleteCartItem( @PathVariable("id") Long id);
 
     @GetMapping(CART_BASE_URL)

@@ -1,6 +1,6 @@
 package com.heima.item.api.request;
 
-import com.hmall.common.domain.PageQuery;
+import com.heima.common.domain.PageQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

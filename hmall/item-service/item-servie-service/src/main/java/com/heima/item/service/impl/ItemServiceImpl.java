@@ -4,12 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.heima.item.api.request.OrderDetailReq;
 import com.heima.item.api.response.ItemResp;
 import com.heima.item.dataobject.Item;
-import com.heima.item.dto.ItemDTO;
-import com.heima.item.dto.OrderDetailDTO;
 import com.heima.item.mapper.ItemMapper;
 import com.heima.item.service.IItemService;
-import com.hmall.common.exception.BizIllegalException;
-import com.hmall.common.utils.BeanUtils;
+import com.heima.common.exception.BizIllegalException;
+import com.heima.common.utils.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

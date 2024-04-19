@@ -31,6 +31,10 @@
             <groupId>com.heima</groupId>
             <artifactId>common-feign</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.heima</groupId>
+            <artifactId>common-core</artifactId>
+        </dependency>
 
     </dependencies>
 </project>

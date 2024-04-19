@@ -13,6 +13,7 @@
         <module>common-dao</module>
         <module>common-core</module>
         <module>common-feign</module>
+        <module>common-base</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 

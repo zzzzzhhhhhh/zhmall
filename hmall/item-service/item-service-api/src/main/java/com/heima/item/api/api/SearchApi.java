@@ -3,8 +3,7 @@ package com.heima.item.api.api;
 import com.heima.item.api.ItemBaseApi;
 import com.heima.item.api.request.ItemPageQueryQO;
 import com.heima.item.api.response.ItemResp;
-import com.hmall.common.domain.PageDTO;
-import io.swagger.annotations.ApiOperation;
+import com.heima.common.domain.PageDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 
 public interface SearchApi extends ItemBaseApi {

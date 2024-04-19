@@ -45,6 +45,13 @@
                 <artifactId>common-feign</artifactId>
                 <version>${common.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-base</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.heima</groupId>
                 <artifactId>item-service-dao</artifactId>

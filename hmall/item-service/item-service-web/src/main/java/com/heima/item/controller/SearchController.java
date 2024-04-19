@@ -7,11 +7,9 @@ import com.heima.item.api.request.ItemPageQueryQO;
 import com.heima.item.api.response.ItemResp;
 import com.heima.item.dataobject.Item;
 import com.heima.item.service.IItemService;
-import com.hmall.common.domain.PageDTO;
+import com.heima.common.domain.PageDTO;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -7,16 +7,17 @@ import com.heima.item.api.request.OrderDetailReq;
 import com.heima.item.api.response.ItemResp;
 import com.heima.item.dataobject.Item;
 import com.heima.item.service.IItemService;
-import com.hmall.common.domain.PageDTO;
-import com.hmall.common.domain.PageQuery;
-import com.hmall.common.utils.BeanUtils;
-import io.swagger.annotations.Api;
-import lombok.AllArgsConstructor;
+import com.heima.common.domain.PageDTO;
+import com.heima.common.domain.PageQuery;
+import com.heima.common.user.UserInfoContext;
+import com.heima.common.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class ItemController implements ItemApi {
@@ -24,7 +25,17 @@ public class ItemController implements ItemApi {
     private final IItemService itemService;
 
 
-    public PageDTO<ItemResp> queryItemByPage(PageQuery query) {
+    public PageDTO<ItemResp> queryItemByPage(PageQuery query , String headerGateway,String userId) {
+
+
+        log.info("itemService--------网关自定义header打印---------"+headerGateway);
+
+
+        log.info("itemService--------网关获取登录用户id打印---------"+userId);
+
+        String userId1 = UserInfoContext.getUserInfo();
+        log.info("itemservice----------从userInfoContext中获取到的userId----------"+userId1);
+
         // 1.分页查询
         Page<Item> result = itemService.page(query.toMpPage("update_time", false));
         // 2.封装并返回

@@ -7,7 +7,7 @@ import com.heima.cart.api.request.CartFormQo;
 import com.heima.cart.api.request.CartQo;
 import com.heima.cart.api.response.CartVO;
 import com.heima.cart.dataobject.Cart;
-import com.hmall.common.utils.BeanUtils;
+import com.heima.common.utils.BeanUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Api(tags = "购物车相关接口")

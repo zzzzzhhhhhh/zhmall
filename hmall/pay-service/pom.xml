@@ -82,6 +82,12 @@
                 <version>${common.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.heima</groupId>
+                <artifactId>common-base</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
 
             <!-- 引用的其他服务-->
             <dependency>

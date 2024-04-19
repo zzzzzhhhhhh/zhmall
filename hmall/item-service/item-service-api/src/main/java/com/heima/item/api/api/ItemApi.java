@@ -3,10 +3,9 @@ package com.heima.item.api.api;
 import com.heima.item.api.ItemBaseApi;
 import com.heima.item.api.request.OrderDetailReq;
 import com.heima.item.api.response.ItemResp;
-import com.hmall.common.domain.PageDTO;
-import com.hmall.common.domain.PageQuery;
+import com.heima.common.domain.PageDTO;
+import com.heima.common.domain.PageQuery;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public interface ItemApi extends ItemBaseApi {
 
     @ApiOperation("分页查询商品")
     @GetMapping(ITEM_BASE_URL+"/page")
-    PageDTO<ItemResp> queryItemByPage(PageQuery query);
+    PageDTO<ItemResp> queryItemByPage(PageQuery query,@RequestHeader(value = "headerGateway",required = false) String headerGateway,@RequestHeader(value = "Authorization",required = false) String userId);
 
     @ApiOperation("根据id批量查询商品")
     @GetMapping(ITEM_BASE_URL)

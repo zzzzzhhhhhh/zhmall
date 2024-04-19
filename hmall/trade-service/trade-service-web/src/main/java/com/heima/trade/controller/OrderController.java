@@ -6,7 +6,7 @@ import com.heima.trade.dataobject.Order;
 import com.heima.trade.request.OrderFormQO;
 import com.heima.trade.request.OrderQO;
 import com.heima.trade.response.OrderVO;
-import com.hmall.common.utils.BeanUtils;
+import com.heima.common.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
