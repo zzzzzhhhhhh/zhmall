@@ -23,7 +23,7 @@ public interface ItemApi extends ItemBaseApi {
     List<ItemResp> queryItemByIds(@RequestParam("ids") List<Long> ids);
 
     @ApiOperation("根据id查询商品")
-    @GetMapping(ITEM_BASE_URL+"{id}")
+    @GetMapping(ITEM_BASE_URL+"/{id}")
     ItemResp queryItemById(@PathVariable("id") Long id);
 
     @ApiOperation("新增商品")

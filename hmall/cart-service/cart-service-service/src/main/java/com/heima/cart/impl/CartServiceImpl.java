@@ -8,6 +8,7 @@ import com.heima.cart.api.request.CartFormQo;
 import com.heima.cart.api.response.CartVO;
 import com.heima.cart.dataobject.Cart;
 import com.heima.cart.mapper.CartMapper;
+import com.heima.common.user.UserInfoContext;
 import com.heima.item.api.api.ItemApi;
 import com.heima.item.api.response.ItemResp;
 import com.heima.common.exception.BizIllegalException;
@@ -67,7 +68,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
     @Override
     public List<CartVO> queryMyCarts() {
         // 1.查询我的购物车列表
-        List<Cart> carts = lambdaQuery().eq(Cart::getUserId, /*UserContext.getUser()*/1).list();
+        List<Cart> carts = lambdaQuery().eq(Cart::getUserId, Long.valueOf(UserInfoContext.getUserInfo())).list();
         if (CollUtils.isEmpty(carts)) {
             return CollUtils.emptyList();
         }

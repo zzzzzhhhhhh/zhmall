@@ -7,6 +7,7 @@ import feign.Feign;
 import feign.RequestInterceptor;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -33,16 +34,20 @@ public class ApiClient {
 
     private final Client client;
 
-    private final List<RequestInterceptor> requestInterceptors;
+    private List<RequestInterceptor> requestInterceptors;
 
     private final Contract contract;
 
-    public ApiClient(Decoder decoder, Encoder encoder, Client client,List<RequestInterceptor> requestInterceptors,Contract contract ) {
+    @Autowired(required = false)
+    public void setRequestInterceptors(List<RequestInterceptor> requestInterceptors) {
+        this.requestInterceptors = requestInterceptors;
+    }
+
+    public ApiClient(Decoder decoder, Encoder encoder, Client client,Contract contract ) {
         this.decoder = decoder;
         this.encoder = encoder;
         this.client = client;
         this.contract = contract;
-        this.requestInterceptors = requestInterceptors;
     }
 
     public <T> T buildClient(Class<T> clientClass) throws Exception {

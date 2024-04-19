@@ -40,5 +40,12 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.heima</groupId>
+            <artifactId>common-core</artifactId>
+        </dependency>
+
+
     </dependencies>
 </project>

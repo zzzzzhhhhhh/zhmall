@@ -44,6 +44,9 @@ public class ItemController implements ItemApi {
 
 
     public List<ItemResp> queryItemByIds(@RequestParam("ids") List<Long> ids){
+
+        log.info("itemService-------服务将userInfo传递------"+UserInfoContext.getUserInfo());
+
         return itemService.queryItemByIds(ids);
     }
 
