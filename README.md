@@ -5,5 +5,4 @@
 SpringBoot,SpringCloud,Nacos,Mybatis-Plus,OpenFeign,spring cloud gateway....
 技术将持续更新,目前只有这些
 # 3.项目进度
-2024.419/n
 添加网关服务,并且配置路由,过滤器,拦截请求,校验token,获取用户信息,放入userInfoContext中.并且实现openfeign的拦截器,实现微服务之间调用时,userInfo的传递.
